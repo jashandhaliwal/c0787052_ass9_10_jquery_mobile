@@ -1,0 +1,167 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+/* Login Page */
+
+.login {
+    position: absolute;
+    left: 60%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #5e90af;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.login h2 {
+    color: white;
+}
+
+.login #login_username,
+#login_password {
+    margin: 20px 0;
+    padding: 20px;
+    width: 400px;
+    border-radius: 5px;
+    border: .3px solid rgb(175, 126, 126);
+    outline: none;
+}
+
+#btn_login {
+    padding: 20px 20px;
+    width: 200px;
+    text-align: center;
+    border: 0;
+    outline: none;
+    background-color: #867b8f6b;
+    color: #4e7a96;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+#btn_login:hover {
+    background-color: rgb(92, 141, 102);
+    color: rgb(83, 37, 37);
+}
+
+.login a {
+    color: rgb(122, 177, 151);
+    text-decoration: none;
+}
+
+
+/* Signup Page */
+
+.signup,
+.update-profile {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #b6cedd;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.signup h2,
+.update-profile h2 {
+    color: rgb(184, 147, 147);
+}
+
+#signup_username,
+#signup_password,
+#signup_name,
+#signup_cpassword,
+#profile_username,
+#profile_password,
+#profile_name,
+#birthday,
+#profile_cpassword {
+    margin: 10px 0;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: .3px solid rgb(79, 126, 158);
+    outline: none;
+}
+
+#btn_signup,
+#btn_profile {
+    padding: 10px 10px;
+    width: 150px;
+    text-align: center;
+    border: 0;
+    outline: none;
+    background-color: #ffffff;
+    color: #5e90af;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+#btn_signup:hover,
+#btn_profile:hover {
+    background-color: tomato;
+    color: white;
+}
+
+#cart {
+    display: none;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+.cart-item {
+    border: 2px solid #5e90af;
+    margin: 20px 50px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.btn,
+#checkout {
+    border: none !important;
+    outline: none !important;
+}
+
+.all {
+    display: none;
+}
+
+#cats {
+    display: none;
+}
+
+footer {
+    position: fixed;
+}
+
+footer i {
+    font-size: 50px;
+}
+
+.fa-facebook-square:hover {
+    font-size: 60px;
+    color: #465b86;
+}
+
+.fa-twitter-square:hover {
+    font-size: 60px;
+    color: #51639c;
+}
+
+.fa-linkedin:hover {
+    font-size: 60px;
+    color: #635baf;
+}

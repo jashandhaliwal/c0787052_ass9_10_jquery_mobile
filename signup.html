@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="javascript" href="javascrip.js">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="signup">
+        <h2>Sign-Up Page</h2>
+
+        <form action="">
+            <input type="email" id="signup_username" name="signup_username" placeholder="Enter your Email" required><br>
+            <input type="text" id="signup_name" name="signup_name" placeholder="Please enter first Name" required><br>
+            <input type="text" id="signup_name" name="signup_name" placeholder="Please enter Last Name" required><br>
+            <input type="password" id="signup_password" name="signup_password" placeholder="Enter your Password" required><br>
+            <input type="password" id="signup_cpassword" name="signup_cpassword" placeholder="Confrm your Password" required><br>
+            <input type="date" id="birthday" name="birthday" placeholder="Birth date" required><br>
+
+            <select  type="city" id="city" name="city" placeholder="select your city" required><br>
+                <option value="city">select your city</option>
+                <option value="Toronto">Toronto</option>
+                <option value="Ottawa">Ottawa</option>
+                <option value="Brampton">Brampton</option>
+                <option value="Hamilton">Hamilton</option>
+                <option value="London">London</option>
+              </select><br>
+
+            <input type="submit" id="btn_signup" name="btn_signup" value="Signup">
+           
+        </form>
+       
+
+
+        <a href="login.html">Already have an account?</a>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#btn_signup').click(function() {
+
+        var ps1 = $('#signup_password').val();
+        var ps2 = $('#signup_cpassword').val();
+        var username = $('#signup_username').val();
+        if (ps1 != "" && ps2 != "" && username != "") {
+            if (ps1 == ps2) {
+                alert("Sign up successfully");
+            } else {
+                alert("Password Not matched");
+            }
+        } else {
+            alert("Fill all the fields");
+        }
+    })
+</script>
+
+</html>

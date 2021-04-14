@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="javascript" href="javascrip.js">
+   
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="login">
+        <h2>Login page</h2>
+        
+        <form action="index.html" method="POST">
+
+            <input type="email" id="login_username" name="login_username" placeholder="Please enter Email" required><br>
+            <input type="password" id="login_password" name="login_password" placeholder="Please enter Password" required><br>
+            <input type="submit" id="btn_login" name="btn_login" value="Login">
+
+        </form>
+        <a href="signup.html">Do you want to create account? </a>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var db = openDatabase("itemDB", "1.0", "itemDB", 1024);
+             db.transaction(function(transaction) {
+             var sql = "CREATE TABLE user " + "(fullname varchar(30) NOT NULL)" + "(username varchar(20) NOT NULL PRIMARY KEY)" + "(password varchar(20) NOT NULL)";
+             transaction.executeSql(sql, undefined, function() {
+             db.transaction(function(transaction) {
+             var sqlins = "insert into user values (fullname,username,password) values (?,?,?)";
+             transaction.executeSql(sqlins, ["admin", "admin@xyz.com", "admin"], function() {
+                            db.transaction(function(transaction) {
+                                    alert("Created and added");
+                                }),
+                                function() {
+                                    alert("Created and added failed");
+                                }
+                        })
+                    })
+                }, function() {
+                    db.transaction(function(transaction) {
+                        var sqlins = "insert into user values (fullname,username,password) values (?,?,?)";
+                        transaction.executeSql(sqlins, ["admin", "admin@xyz.com", "admin"], function() {
+                            db.transaction(function(transaction) {
+                                    alert("Already Created and added");
+                                }),
+                                function() {
+                                    alert("Already Created and added failed");
+                                }
+                        })
+                    })
+                })
+            })
+        });
+        
+        $("#btn_logi").click(function() {
+            var username = $("#login_username").val();
+            var password = $("#login_password").val();
+            db.transaction(function(transaction) {
+                var sqls = "SELECT * from user";
+                transaction.executeSql( undefined, function(transaction, result) {
+                    if (result.row.length) {
+                        for (var i = 0; i < result.length; i++) {
+                            var row = result.row.item(i);
+                            var user = row.username;
+                            var pass = row.password;
+                            if (user == username && pass == password) {
+                                alert("Login Successfull");
+                            } else {
+                                alert("Login Failed");
+                            }
+                        }
+                    }
+                })
+            })
+            
+        })
+    </script>
+</body>
+
+</html>
